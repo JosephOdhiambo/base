@@ -70,9 +70,11 @@ class BranchesController extends Controller
         $model = new Branches();
 
         if ($this->request->isPost) {
+            //
             if ($model->load($this->request->post())) {
                 $model->branch_created_date = date('Y-m-d h:m:s');
                 $model->save();
+                //
                 return $this->redirect(['view', 'branch_id' => $model->branch_id]);
             }
         } else {

@@ -70,9 +70,11 @@ class DepartmentsController extends Controller
         $model = new Departments();
 
         if ($this->request->isPost) {
+            //
             if ($model->load($this->request->post())) {
                 $model->department_created_date = date('Y-m-d h:m:s');
                 $model->save();
+                //
                 return $this->redirect(['view', 'department_id' => $model->department_id]);
             }
         } else {

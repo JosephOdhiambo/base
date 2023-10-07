@@ -70,9 +70,11 @@ class CompaniesController extends Controller
         $model = new Companies();
 
         if ($this->request->isPost) {
+            //
             if ($model->load($this->request->post())) {
                 $model->company_created_date = date('Y-m-d h:m:s');
                 $model->save();
+                //
                 return $this->redirect(['view', 'company_id' => $model->company_id]);
             }
         } else {
